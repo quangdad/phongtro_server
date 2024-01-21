@@ -360,7 +360,7 @@ export const getDashboard = asyncHandler(async (req, res) => {
         db.Post.findAll({
             where: { ...q, categoryCode: 'CTPT' },
             attributes: [
-                [sequelize.fn('date_format', sequelize.col('createdAt'), typeDate), 'createdAt'],
+                [sequelize.fn('to_char', sequelize.col('createdAt'), typeDate), 'createdAt'],
                 [sequelize.fn('count', sequelize.col('id')), 'counter']
             ],
             group: 'createdAt',
@@ -369,7 +369,7 @@ export const getDashboard = asyncHandler(async (req, res) => {
         db.Post.findAll({
             where: { ...q, categoryCode: 'CTMB' },
             attributes: [
-                [sequelize.fn('date_format', sequelize.col('createdAt'), typeDate), 'createdAt'],
+                [sequelize.fn('to_char', sequelize.col('createdAt'), typeDate), 'createdAt'],
                 [sequelize.fn('count', sequelize.col('id')), 'counter']
             ],
             group: 'createdAt',
@@ -378,7 +378,7 @@ export const getDashboard = asyncHandler(async (req, res) => {
         db.Post.findAll({
             where: { ...q, categoryCode: 'CTCH' },
             attributes: [
-                [sequelize.fn('date_format', sequelize.col('createdAt'), typeDate), 'createdAt'],
+                [sequelize.fn('to_char', sequelize.col('createdAt'), typeDate), 'createdAt'],
                 [sequelize.fn('count', sequelize.col('id')), 'counter']
             ],
             group: 'createdAt',
@@ -387,7 +387,7 @@ export const getDashboard = asyncHandler(async (req, res) => {
         db.Post.findAll({
             where: { ...q, categoryCode: 'NCT' },
             attributes: [
-                [sequelize.fn('date_format', sequelize.col('createdAt'), typeDate), 'createdAt'],
+                [sequelize.fn('to_char', sequelize.col('createdAt'), typeDate), 'createdAt'],
                 [sequelize.fn('count', sequelize.col('id')), 'counter']
             ],
             group: 'createdAt',
