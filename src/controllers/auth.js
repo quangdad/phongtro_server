@@ -52,7 +52,7 @@ export const register = asyncHandler(async (req, res) => {
     })
 })
 export const finalRegister = asyncHandler(async (req, res) => {
-    const { token, email } = req.query
+    const { token, email } = req.params
     const response = await db.User.findOne({ where: { id: token }, raw: true })
     if (response) {
         const update = await db.User.update({ email, id: makeId() }, { where: { id: token } })
