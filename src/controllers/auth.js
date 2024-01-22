@@ -40,7 +40,7 @@ export const register = asyncHandler(async (req, res) => {
     }
     if (!user) {
         const subject = 'Xác minh email đăng ký'
-        const html = `Xin vui lòng click vào link dưới đây để hoàn tất đăng ký tài khoản của bạn.Link này sẽ hết hạn sau 5 phút kể từ bây giờ. <a href=${process.env.CLIENT_URL}/api/v1/auth/finalregister/${req.body.email}/${token}>Click here</a>`
+        const html = `Xin vui lòng click vào link dưới đây để hoàn tất đăng ký tài khoản của bạn.Link này sẽ hết hạn sau 5 phút kể từ bây giờ. <a href=${process.env.SERVER_URL}/api/v1/auth/finalregister/${req.body.email}/${token}>Click here</a>`
         await sendMail({ email: req.body.email, html, subject })
         setTimeout(async () => {
             await db.User.destroy({ where: { id: token } })
